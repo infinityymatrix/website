@@ -80,7 +80,7 @@ body {
     padding: 2rem;
     position: relative;
 
-    background-image: url("/assets/hero.jpeg");
+    background-image: url("../assets/hero.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
