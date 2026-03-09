@@ -1,0 +1,435 @@
+/* ================================
+   RESET & BASE STYLES
+   ================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --charcoal: #1a1a1a;
+    --off-white: #f8f8f6;
+    --gold: #c9a961;
+    --light-gray: #e5e5e3;
+    --text-gray: #4a4a4a;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--charcoal);
+    background-color: var(--off-white);
+}
+
+/* ================================
+   STICKY HEADER
+   ================================ */
+
+#header {
+    position: sticky;
+    top: 0;
+    background-color: rgba(248, 248, 246, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem 2rem;
+    text-align: center;
+    border-bottom: 1px solid var(--light-gray);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.2rem;
+    color: var(--charcoal);
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+#header p {
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-gray);
+    font-weight: 400;
+}
+
+/* ================================
+   HERO SECTION
+   ================================ */
+
+#hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+
+    background-image: url("/assets/hero.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    color: var(--off-white);
+}
+
+/* dark overlay */
+#hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 1;
+}
+
+/* content above overlay */
+#hero > * {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    animation: fadeInUp 1.2s ease-out;
+}
+
+.hero-content h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    letter-spacing: 0.02em;
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background-color: transparent;
+    color: var(--off-white);
+    border: 1px solid var(--off-white);
+    text-decoration: none;
+    font-size: 0.9rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    font-weight: 400;
+}
+
+.cta-button:hover {
+    background-color: var(--gold);
+    border-color: var(--gold);
+    color: var(--charcoal);
+}
+
+/* ================================
+   ABOUT SECTION
+   ================================ */
+
+#about {
+    padding: 8rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.about-text h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+    letter-spacing: 0.05em;
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text-gray);
+}
+
+.about-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: sticky;
+    top: 120px;
+}
+
+.image-placeholder {
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 3/4;
+    background-color: var(--light-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.image-placeholder span {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    letter-spacing: 0.1em;
+}
+
+/* Replace .image-placeholder with this when adding your photo:
+.about-image img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+}
+*/
+
+/* ================================
+   SOCIAL MEDIA ICONS
+   ================================ */
+
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--charcoal);
+    transition: all 0.25s ease;
+    text-decoration: none;
+}
+
+.social-icon svg {
+    width: 22px;
+    height: 22px;
+}
+
+.social-icon:hover {
+    color: var(--gold);
+    transform: translateY(-2px);
+}
+
+/* ================================
+   EXPRESSION OF INTEREST SECTION
+   ================================ */
+
+#interest {
+    padding: 8rem 2rem;
+    background-color: #f0f0ee;
+}
+
+.interest-container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.interest-container h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+}
+
+.interest-subtitle {
+    font-size: 1rem;
+    color: var(--text-gray);
+    margin-bottom: 3rem;
+    letter-spacing: 0.05em;
+}
+
+/* ================================
+   FORM STYLES
+   ================================ */
+
+#interestForm {
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 2rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    color: var(--charcoal);
+    font-weight: 400;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border: 1px solid var(--light-gray);
+    background-color: var(--off-white);
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: var(--charcoal);
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--gold);
+    background-color: white;
+}
+
+.form-group select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%231a1a1a' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 3rem;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 1.1rem 2rem;
+    background-color: var(--charcoal);
+    color: var(--off-white);
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    border-radius: 2px;
+    font-weight: 400;
+}
+
+.submit-button:hover {
+    background-color: var(--gold);
+    color: var(--charcoal);
+}
+
+.submit-button:active {
+    transform: scale(0.98);
+}
+
+/* ================================
+   ANIMATIONS
+   ================================ */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ================================
+   RESPONSIVE DESIGN
+   ================================ */
+
+@media (max-width: 768px) {
+    #header h1 {
+        font-size: 1.5rem;
+    }
+
+    #header p {
+        font-size: 0.7rem;
+    }
+
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .about-image {
+        position: static;
+        order: -1;
+    }
+
+    .image-placeholder {
+        max-width: 300px;
+    }
+
+    .social-links {
+        gap: 1.2rem;
+    }
+
+    .social-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    #about,
+    #interest {
+        padding: 5rem 1.5rem;
+    }
+
+    .about-text h3,
+    .interest-container h3 {
+        font-size: 2rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .about-text {
+        text-align: center;
+        padding: 0 20px;
+    }
+}

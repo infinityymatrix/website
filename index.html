@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>infinity by aviral</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Sticky Header -->
+    <header id="header">
+        <h1>Infinity</h1>
+        <hr style="width: 20%;"/>
+        <p>by aviral</p>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-content">
+            <h2>math isn't mathing?</h2>
+            <p class="hero-subtitle">let's change that.</p>
+            <a href="#interest" class="cta-button">get started</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="about-container">
+            <div class="about-text">
+                <h3>About</h3>
+                <p>Every student learns differently. Cookie-cutter teaching doesn't work for everyone—that's why my approach is personal, patient, and designed to help you actually understand the concepts, not just memorize them.</p>
+                <p>Whether you're struggling with algebra, preparing for exams, or just want to feel confident in math class, I'm here to help you build genuine understanding and confidence.</p>
+                <p>Based in [Location], I work with students across IB and IGCSE boards, from Year 8 through Year 13. My goal isn't just better grades—it's making math make sense.</p>
+            </div>
+            <div class="about-image">
+                <div class="image-placeholder">
+                    <!-- Replace this div with your actual image -->
+                    <span>Your Photo Here</span>
+                </div>
+                <!-- Social Media Icons -->
+                <div class="social-links">
+                    <a href="https://www.instagram.com/infinity_aviral?igsh=bjZueHFidWUwcmVh" class="social-icon" aria-label="Instagram">
+                        <!-- REPLACE: Instagram URL -->
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/aviral-rishi-34825851" class="social-icon" aria-label="LinkedIn">
+                        <!-- REPLACE: LinkedIn URL -->
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expression of Interest Section -->
+    <section id="interest">
+        <div class="interest-container">
+            <h3>Express Your Interest</h3>
+            <p class="interest-subtitle">Let's start your math journey together</p>
+            
+            <form id="interestForm">
+                <div class="form-group">
+                    <label for="name">Student Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email (Optional)</label>
+                    <input type="email" id="email" name="email">
+                </div>
+
+                <div class="form-group">
+                    <label for="school">School *</label>
+                    <input type="text" id="school" name="school" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="board">Board *</label>
+                    <select id="board" name="board" required>
+                        <option value="">Select a board</option>
+                        <option value="ib">IB</option>
+                        <option value="igcse">IGCSE</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="year">Year Group *</label>
+                    <select id="year" name="year" required>
+                        <option value="">Select year group</option>
+                        <option value="8">Year 8</option>
+                        <option value="9">Year 9</option>
+                        <option value="10">Year 10</option>
+                        <option value="11">Year 11</option>
+                        <option value="12">Year 12</option>
+                        <option value="13">Year 13</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="submit-button">Submit Interest</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+
+    const form = document.getElementById("interestForm");
+
+    form.addEventListener("submit", async function(e){
+
+        e.preventDefault();
+
+        const data = {
+            name: document.getElementById("name").value.trim(),
+            phone: document.getElementById("phone").value.trim(),
+            email: document.getElementById("email").value.trim(),
+            school: document.getElementById("school").value.trim(),
+            board: document.getElementById("board").value,
+            year: document.getElementById("year").value
+        };
+
+        if(!data.name || !data.phone || !data.school || !data.board || !data.year){
+            alert("Please fill all required fields.");
+            return;
+        }
+
+        try {
+
+            await fetch("https://script.google.com/macros/s/AKfycbzEEKVlLfMihLfSw_OldieGdN1nz-sj7EY7IND_jz9sOEmt_jxdticuu0RkQTfSmNFdlg/exec", {
+                method: "POST",
+                body: JSON.stringify(data)
+            });
+
+            alert("Thank you! We'll contact you soon.");
+            form.reset();
+
+        } catch(err){
+            alert("Submission failed. Please try again.");
+        }
+
+    });
+
+    </script>
+    <script src="js/main.js"></script>
+</body>
+</html>
